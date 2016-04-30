@@ -1,8 +1,9 @@
-﻿// Learn more about F# at http://fsharp.org. See the 'F# Tutorial' project
-// for more guidance on F# programming.
+﻿#load "./packages/FsLab/FsLab.fsx"
+#load "GitLogParser.fs"
 
-#load "Library1.fs"
-open ExtractRepoInfo
+open System.IO
 
-// Define your library scripting code here
+let filePath = Path.Combine(__SOURCE_DIRECTORY__, ".\Data\sfa-log.log")
+
+let commits = GitLogParser.getAllCommits filePath
 
