@@ -5,7 +5,7 @@ open System.IO
 
 let filePath = Path.Combine(__SOURCE_DIRECTORY__, ".\Data\sfa-log.log")
 
-let commits = GitLogParser.getAllCommits filePath
+let commits = Git.LogParser.getAllCommits filePath
 
 // --------------------
 // 1. BASIC STATISTICS
@@ -46,3 +46,35 @@ let chartFileByType =
 // The result should be:
 
 let authors =
+
+// ------------
+// 2. HOTSPOTS
+// ------------ 
+
+// 2.1 NUMBER OF REVISIONS BY FILE
+// Calculate how many commits have been made to each file
+// Something similar to files by type...
+
+let numberOfRevisionsByFile =
+
+// 2.2 BARCHART OF NUMBER OF REVISIONS
+
+// 2.3 CALCULATE COMPLEXITY
+// Calculate the number of lines of each file
+// You can use Git.Client.numberOfLinesOf or develop your own version
+// Use the 10 files with more revisions
+
+let numberOfLinesByFile =
+
+// 2.4 CORRELATE NUMBER OF REVISIONS AND COMPLEXITY
+// Draw both charts at the same time
+
+// 2.5 NUMBER OF AUTHORS PER FILE
+// Calculate the number of authors that have commited a given file
+// Use the 10 files with more revisions
+
+let numberOfAuthorsByFile =
+
+// 2.6 CORRELATE NUMBER OF REVISIONS AND NUMBER OF AUTHORS
+// Draw both charts at the same time
+
