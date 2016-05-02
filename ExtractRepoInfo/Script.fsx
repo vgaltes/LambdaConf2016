@@ -54,10 +54,13 @@ let authors =
 // 2.1 NUMBER OF REVISIONS BY FILE
 // Calculate how many commits have been made to each file
 // Something similar to files by type...
+// You can use the following helper function to get the file name from a full path
+let getFileNameFromPath (p:string) = p.Split('/') |> Array.last
 
 let numberOfRevisionsByFile =
 
 // 2.2 BARCHART OF NUMBER OF REVISIONS
+// Take the first 10
 
 // 2.3 CALCULATE COMPLEXITY
 // Calculate the number of lines of each file
@@ -66,15 +69,19 @@ let numberOfRevisionsByFile =
 
 let numberOfLinesByFile =
 
-// 2.4 CORRELATE NUMBER OF REVISIONS AND COMPLEXITY
+// 2.4 BARCHART OF NUMBER OF LINES
+
+// 2.5 CORRELATE NUMBER OF REVISIONS AND COMPLEXITY
 // Draw both charts at the same time
 
-// 2.5 NUMBER OF AUTHORS PER FILE
+// 2.6 NUMBER OF AUTHORS PER FILE
 // Calculate the number of authors that have commited a given file
 // Use the 10 files with more revisions
 
 let numberOfAuthorsByFile =
 
-// 2.6 CORRELATE NUMBER OF REVISIONS AND NUMBER OF AUTHORS
+// 2.7 BARCHAR OF NUMBER OF AUTHORS
+
+// 2.8 CORRELATE NUMBER OF REVISIONS AND NUMBER OF AUTHORS
 // Draw both charts at the same time
 
