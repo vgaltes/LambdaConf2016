@@ -22,7 +22,7 @@ bld/
 [Oo]bj/
 
 # Uncomment the day before the workshop
-Solution.fsx 
+./ExtractRepoInfo/Solution/Solution.fsx 
 
 # Visual Studio 2015 cache/options directory
 .vs/
