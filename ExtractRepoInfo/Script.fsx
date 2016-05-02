@@ -66,6 +66,7 @@ let numberOfRevisionsByFile =
 // Calculate the number of lines of each file
 // You can use Git.Client.numberOfLinesOf or develop your own version
 // Use the 10 files with more revisions
+let gitHubRawContentBaseAddress = "https://raw.githubusercontent.com/SkillsFundingAgency/FindApprenticeship/master/"
 
 let numberOfLinesByFile =
 
@@ -85,3 +86,16 @@ let numberOfAuthorsByFile =
 // 2.8 CORRELATE NUMBER OF REVISIONS AND NUMBER OF AUTHORS
 // Draw both charts at the same time
 
+// -------------------------
+// 3. COMPLEXITY OVER TIME
+// -------------------------
+
+// Steps:
+//  1.- Create a function to get the history of a file
+//      The output of the function should be a list (ordered by date) of strings composed by
+//      the commit hash and the path of the file
+//  2.- Create a function that given a HttpResponseBody calculates the number of lines, max number of tabs
+//      and average number of tabs
+//  3.- Create a function that for each element in the history gets the file from github and calculates the file
+//      statistics (the previous function)
+//  4.- Create a line chart to show the results

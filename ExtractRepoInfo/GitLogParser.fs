@@ -64,8 +64,7 @@
         open System.IO
         open FSharp.Data
                 
-        let numberOfLinesOf file =
-            let gitHubRawContentBaseAddress = "https://raw.githubusercontent.com/SkillsFundingAgency/FindApprenticeship/master/"
+        let numberOfLinesOf gitHubRawContentBaseAddress file =
             let getFileFromGitHub fileUrl =
                 let request = Http.Request(fileUrl, silentHttpErrors = true)
                 if ( request.StatusCode = 200 ) then
@@ -75,7 +74,9 @@
                 else None
 
             let gitHubPath = Path.Combine ( gitHubRawContentBaseAddress, file)
+            printfn "%s" gitHubPath
             let fileContent = getFileFromGitHub gitHubPath
             match fileContent with
             | Some(content) -> Some (file, content.Split([|'\n'|]) |> Array.length)
             | None -> None
+
