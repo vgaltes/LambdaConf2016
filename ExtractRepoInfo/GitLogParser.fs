@@ -61,6 +61,7 @@
                                                             |> Array.forall(fun e -> not (f.FileName.EndsWith(e))))})
 
     module Client =
+        open System
         open System.IO
         open FSharp.Data
                 
@@ -80,3 +81,32 @@
             | Some(content) -> Some (file, content.Split([|'\n'|]) |> Array.length)
             | None -> None
 
+        let calculateFileStatistics (fileContent: string) = 
+            let srcLines = fileContent.Split([|"\n"|], StringSplitOptions.RemoveEmptyEntries)
+
+            let numLines = srcLines |> Array.length
+
+            let spaces = srcLines |> Array.map ( fun l -> l.ToCharArray() |> Array.takeWhile(fun c -> c = ' '))
+            let numTabs = spaces |> Array.map ( fun l -> float( l |> Array.length ) / 4.0)
+            let maxTabs = numTabs|> Array.max
+            let averageTabs = numTabs |> Array.average
+
+            numLines, maxTabs, averageTabs
+
+        let processHttpResponse calculateFileStatistics (response: HttpResponseBody) =
+            match response with
+            | Text(t) -> 
+                calculateFileStatistics t
+            | Binary(_) -> 0, 0., 0.  
+        
+        let getFullFileStatistics (gitHubFileInfo: DateTime * string) =
+            let request = Http.Request(snd gitHubFileInfo, silentHttpErrors = true)
+            if ( request.StatusCode = 200 ) then
+                Some (fst gitHubFileInfo, processHttpResponse calculateFileStatistics request.Body)   
+            else None
+
+        let getFileStatistics calculateFileStatistics (gitHubFileInfo: DateTime * string) =
+            let request = Http.Request(snd gitHubFileInfo, silentHttpErrors = true)
+            if ( request.StatusCode = 200 ) then
+                Some (fst gitHubFileInfo, processHttpResponse calculateFileStatistics request.Body)   
+            else None

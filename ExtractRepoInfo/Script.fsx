@@ -99,3 +99,23 @@ let numberOfAuthorsByFile =
 //  3.- Create a function that for each element in the history gets the file from github and calculates the file
 //      statistics (the previous function)
 //  4.- Create a line chart to show the results
+
+
+//--------------
+// 3. AUTHORS
+//--------------
+
+// 3.1 CONTRIBUTION BY AUTHOR IN A FILE
+// Steps:
+//  1.- Create a function to get the different commits (CommitInfo array) of a file. You'll need the author of each
+//      Commit, so probably you'll need to return an array of (string * CommitInfo)
+//  2.- Create a function that gets the result of the previous function and calculates the contributions (sum of lines
+//      added plus lines deleted) of each author to that file
+//  3.- Use a treeMap to display the information
+
+// 3.2 FILES WHERE AN AUTHOR IS THE MAIN CONTRIBUTOR
+// List the files where the author (xx) is the main contributor
+
+
+// 3.3 FILES WHERE AN AUTHOR IS THE ONLU CONTRIBUTOR
+// List the files where the author (xx) is the only contributor
