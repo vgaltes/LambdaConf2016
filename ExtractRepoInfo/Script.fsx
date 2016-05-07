@@ -119,3 +119,13 @@ let numberOfAuthorsByFile =
 
 // 3.3 FILES WHERE AN AUTHOR IS THE ONLU CONTRIBUTOR
 // List the files where the author (xx) is the only contributor
+
+//--------------
+// 4. COUPLING
+//--------------
+
+// Steps:
+//  1.- Create a function that, from an array of strings, generates all the possible pairs without repetition.
+//      [|"A"; "B"; "C"|] -> [|("A", "B"); ("A", "C"); ("B", "C")|]
+//  2.- Create a function that, for each commit, calls the previous function, and sum the times two files are commited together
+//  3.- Use a Sankey chart to display the relationship between the first 20 files
