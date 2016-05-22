@@ -66,8 +66,7 @@ let numberOfRevisionsByFile =
 // Calculate the number of lines of each file
 // You can use Git.Client.numberOfLinesOf or develop your own version
 // Use the 10 files with more revisions
-let gitHubRawContentBaseAddress = "https://raw.githubusercontent.com/SkillsFundingAgency/FindApprenticeship/master/"
-
+let gitHubRawContentBaseAddress = "https://raw.githubusercontent.com/NancyFx/Nancy/"
 let numberOfLinesByFile =
 
 // 2.4 BARCHART OF NUMBER OF LINES

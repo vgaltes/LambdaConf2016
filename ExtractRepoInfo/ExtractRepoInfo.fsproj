@@ -49,10 +49,10 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="GitLogParser.fs" />
     <None Include="Script.fsx" />
-    <None Include="Data\sfa-log.log">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Data\test.csv" />
+    <None Include="Data\nancy.log" />
     <None Include="Solution\Solution.fsx" />
+    <None Include="Demo.fsx" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
