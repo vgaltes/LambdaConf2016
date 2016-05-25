@@ -14,7 +14,7 @@ let commits = Git.LogParser.getAllCommits filePath
 // 1.1 NUMBER OF FILES CHANGED
 // Calculate the number of files (with repetitions) that have been commited
 // Maybe it's time to investigate Array.collect and Array.length
-// The result should be: 
+// The result should be: 14720
 
 let numberOfFilesChanged =
 
@@ -22,7 +22,7 @@ let numberOfFilesChanged =
 // 1.2 NUMBER OF FILES
 // Calculate the number of files (without repetitions) that have been commited.
 // Take a look at the Array documentation and see if there's some function to get the disctict elements.
-// The result should be:
+// The result should be: 3284
 
 let numberOfFiles = 
 
@@ -30,7 +30,7 @@ let numberOfFiles =
 // 1.3 FILES BY TYPE
 // Calculate the number of files that have the same extension (.cs, .js, etc).
 // Time to use groupBy, map and sortByDescending
-// The result should be:
+// The result should be: [|(".cs", 1963); (".dll", 401); (".xml", 143); ...|]
 
 let filesByType =
 
@@ -43,7 +43,7 @@ let chartFileByType =
 // 1.6 AUTHORS
 // Get the disctinct authors that have commited a file (using the Author field of the CommitInfo record)
 // It's possible that you'll have to decompose a tuple: let d (a, b) = a
-// The result should be:
+// The result should be: [|"Andreas H├Ñkansson"; "Kristian Hellang"; "Julien Roncaglia"; ... |]
 
 let authors =
 
