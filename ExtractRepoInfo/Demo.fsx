@@ -92,31 +92,27 @@ letters |> Array.mapi (fun i l -> sprintf "The letter at index %i is %c" i l)
 // Iterates and call a function with each element, but it doesn’t returns anything 
 // (only has side effects). We can user Array.iteri if we need the index.
 
-let letters = [|'a';'b';'c';'d'|]
 letters |> Array.iteri (fun i l -> printf "The letter at index %i is %c" i l)
 
 // Array.filter
 // Given an array only returns those elements on which the function applied returns true.
 
-let numbers = [|1..20|]
 let evenNumbers = 
-    numbers
+    numbers'
     |> Array.filter (fun n -> n % 2 = 0)
       
 // Array.choose
 // Given an array only returns those elements on wich the function applied returns a ‘Some’ result. 
 // So, the function applied must return an option type.
 
-let numbers = [|1..20|]
-let evenNumbers = 
-    numbers
+let evenNumbers' = 
+    numbers'
     |> Array.choose (fun n -> if ( n % 2 = 0 ) then Some(n) else None)
   
 // Array.sum
 // Sum the values of the array. The type of the array must support addition and must have a zero member.
 
-let numbers = [|1..20|]
-let sum = 
+let sumNumbers = 
     numbers
     |> Array.sum
   
@@ -127,8 +123,8 @@ let sum =
 // Given an array, returns the array sorted by the element. If we use sortBy, we can specify 
 // a function to be used to sort
 
-let sortedStrings =
-    strings
+let sortedNumbers =
+    numbers
     |> Array.sort
     
 // Array.reduce
@@ -143,16 +139,14 @@ let sentence =
 // Array.fold
 // Same as reduce, but takes as a parameter the first value of the accumulator.
 
-let strings = [|"This"; "is"; "a"; "sentence"|]
-let sentence =
+let sentence' =
     strings
     |> Array.fold  (fun acc s -> acc + " " + s) "Fold:"
 
 // Array.scan
 // Like fold, but returns each intermediate result
 
-let strings = [|"This"; "is"; "a"; "sentence"|]
-let sentence =
+let sentence'' =
     strings
     |> Array.scan  (fun acc s -> acc + " " + s) "Scan:"
     
@@ -164,6 +158,18 @@ let colorNames = [|"red";"green";"blue"|]
 let colorCodes = [|"FF0000"; "00FF00"; "0000FF"|]
 let colors =
     Array.zip colorNames colorCodes
+
+// Array.collect
+// For each element of the array, applies the given function. 
+// Concatenates all the results and return the combined array.
+let a1 = [|1;2;3|]
+let a2 = [|11;12|]
+let a3 = [|21;22;23;24|]
+let at = [|a1;a2;a3|]
+let collect = 
+    at
+    |> Array.collect id
+    //|> Array.collect (fun a -> a)
     
 // Type providers
 open FSharp.Data
