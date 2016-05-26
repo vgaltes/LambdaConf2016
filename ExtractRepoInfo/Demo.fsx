@@ -9,7 +9,8 @@ let b = 2
 //}
 
 // Functions
-let sum a b = a + b
+let sum a b = 
+    a + b
 let res = sum a b
 
 // Tuples
@@ -32,6 +33,7 @@ let res1 = addOne 3
 let res2 = addTwo 3
 
 // Pipes
+let r = addOne 3
 let res1' = 3 |> addOne
 let res2' = res1' |> addTwo
 let res3 = 3 |> addOne |> addTwo
@@ -44,9 +46,9 @@ let res3' = 3|> addThree
 let s = Some("Hello")
 let s' = None
 
-match s with
+match s' with
 | Some(x) -> printfn "%s" x
-| None -> printfn "None"
+| _ -> printfn "whatever"
 
 type Figure =
     | Circle
@@ -174,6 +176,7 @@ let collect =
 // Type providers
 open FSharp.Data
 type TestCsv = CsvProvider<"FirstName,LastName,City">
-let csv = TestCsv.Load "..\\..\\Data\\test.csv"
+let csvFile = System.IO.Path.Combine(__SOURCE_DIRECTORY__, "Data", "test.csv")
+let csv = TestCsv.Load csvFile
 let ovais = csv.Rows |> Seq.head
 let city = ovais.City

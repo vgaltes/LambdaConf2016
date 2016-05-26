@@ -8,7 +8,7 @@ open FSharp.Data
 open Git.LogParser
 open XPlot.GoogleCharts
 
-let filePath = Path.Combine(__SOURCE_DIRECTORY__, "..\Data\\nancy.log")
+let filePath = Path.Combine(__SOURCE_DIRECTORY__, "..", "Data", "nancy.log")
 
 let commits = Git.LogParser.getAllCommits filePath
 

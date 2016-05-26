@@ -3,7 +3,7 @@
 
 open System.IO
 
-let filePath = Path.Combine(__SOURCE_DIRECTORY__, ".\Data\sfa-log.log")
+let filePath = Path.Combine(__SOURCE_DIRECTORY__, "Data", "nancy.log")
 
 let commits = Git.LogParser.getAllCommits filePath
 
@@ -20,6 +20,9 @@ let commits = Git.LogParser.getAllCommits filePath
 // The result should be: 14720
 
 let numberOfFilesChanged =
+    commits
+    |> Array.collect(fun c -> c.Files)
+    |> Array.length
 
 
 // 1.2 NUMBER OF FILES
