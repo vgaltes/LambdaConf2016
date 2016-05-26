@@ -7,6 +7,9 @@ let filePath = Path.Combine(__SOURCE_DIRECTORY__, ".\Data\sfa-log.log")
 
 let commits = Git.LogParser.getAllCommits filePath
 
+// type CommitInfo = {Hash : string; Author : string; TimeStamp : DateTime; Message : string}
+// type CommittedFile = {LinesAdded: int option; LinesDeleted: int option; FileName: string}
+
 // --------------------
 // 1. BASIC STATISTICS
 // --------------------
